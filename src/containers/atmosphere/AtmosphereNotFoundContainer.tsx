@@ -33,12 +33,12 @@ export default function AtmosphereNotFoundContainer() {
     <section className="p-3 bg-skin-base border-skin-base md:border-x border-b md:rounded-b-2xl">
       <Alert variant="info" message="No apps found" />
       <p className="font-medium text-skin-base mt-5">
-        Stellar currently supports the following apps in the atmosphere:
+        Naledi currently supports the following apps in the atmosphere:
       </p>
       <ul className="flex flex-col gap-2 mt-2">
         <li>
           <AtmosphereItem
-            url="/dashboard/user/frontpage.fyi"
+            url="/profile/frontpage.fyi"
             title="Frontpage"
             description="A decentralised and federated link aggregator built on the same technologies as Bluesky."
             logo={FrontpageLogo.src}
@@ -46,7 +46,7 @@ export default function AtmosphereNotFoundContainer() {
         </li>
         <li>
           <AtmosphereItem
-            url="/dashboard/user/linkat.blue"
+            url="/profile/linkat.blue"
             title="Linkat"
             description="Create your Link in Bio for Bluesky."
             logo={LinkatLogo.src}
@@ -54,7 +54,7 @@ export default function AtmosphereNotFoundContainer() {
         </li>
         <li>
           <AtmosphereItem
-            url="/dashboard/user/whtwnd.com"
+            url="/profile/whtwnd.com"
             title="White Wind"
             description="A Markdown blog service (AppView) which uses atproto."
             logo={WhiteWindLogo.src}

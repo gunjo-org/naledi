@@ -15,10 +15,10 @@ import { useRouter } from "next/navigation";
 import FeedHeaderSkeleton from "./FeedHeaderSkeleton";
 import { useQueryClient } from "@tanstack/react-query";
 import { savedFeedsQueryKey } from "@/containers/settings/myFeedsContainer/MyFeedsContainer";
-import { BiHeart, BiSolidTrash } from "react-icons/bi";
+import { BiStar, BiSolidTrash } from "react-icons/bi";
 import { BiSolidBookmarkAlt } from "react-icons/bi";
 import { BiPlus } from "react-icons/bi";
-import { BiSolidHeart } from "react-icons/bi";
+import { BiSolidStar } from "react-icons/bi";
 import Link from "next/link";
 import { useAgent } from "@/app/providers/agent";
 
@@ -126,7 +126,7 @@ export default function FeedHeader(props: Props) {
             <h3 className="text-skin-secondary break-all">
               By{" "}
               <Link
-                href={`/dashboard/user/${feedInfo.view.creator.handle}`}
+                href={`/profile/${feedInfo.view.creator.handle}`}
                 className="hover:text-skin-tertiary font-medium"
               >
                 @{feedInfo.view.creator.handle}
@@ -151,9 +151,9 @@ export default function FeedHeader(props: Props) {
             </Button>
             <Button onClick={toggleLike}>
               {likeUri && (
-                <BiSolidHeart className="text-skin-icon-like text-lg" />
+                <BiSolidStar className="text-skin-icon-star text-lg" />
               )}
-              {!likeUri && <BiHeart className="text-skin-icon-muted text-lg" />}
+              {!likeUri && <BiStar className="text-skin-icon-muted text-lg" />}
             </Button>
           </div>
         )}
@@ -164,7 +164,7 @@ export default function FeedHeader(props: Props) {
         </p>
       )}
       <small className="text-skin-secondary flex items-center gap-1 font-medium">
-        <BiSolidHeart className="text-skin-icon-base" />
+        <BiSolidStar className="text-skin-icon-base" />
         <span>{feedInfo.view.likeCount}</span>
       </small>
     </article>

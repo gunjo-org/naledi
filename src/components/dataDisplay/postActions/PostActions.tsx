@@ -15,13 +15,13 @@ import { useComposerControls } from "@/app/providers/composer";
 import toast from "react-hot-toast";
 import {
   BiDotsHorizontalRounded,
-  BiHeart,
+  BiStar,
   BiMessageRounded,
   BiRepost,
   BiSolidBell,
   BiSolidBellOff,
   BiSolidCopy,
-  BiSolidHeart,
+  BiSolidStar,
   BiSolidQuoteAltRight,
   BiSolidTrash,
 } from "react-icons/bi";
@@ -47,7 +47,7 @@ export default function PostActions(props: Props) {
 
   const handleShare = useCallback(() => {
     const postId = getPostId(post.uri);
-    const shareUrl = `https://stellar.maril.blue/dashboard/user/${post.author.handle}/post/${postId}`;
+    const shareUrl = `https://naledi.gunjo.org/profile/${post.author.handle}/post/${postId}`;
     clipboard.copy(shareUrl);
     toast.success("Copied link to post", { id: "Copy post link" });
   }, [clipboard, post.uri, post.author.handle]);
@@ -72,7 +72,7 @@ export default function PostActions(props: Props) {
           <div className="border-skin-base mt-3 flex flex-wrap items-center gap-3 border-y py-2">
             {repostCount > 0 && (
               <Link
-                href={`/dashboard/user/${post.author.handle}/post/${getPostId(
+                href={`/profile/${post.author.handle}/post/${getPostId(
                   post.uri
                 )}/reposted-by`}
                 className="text-skin-base flex gap-1 font-semibold"
@@ -85,7 +85,7 @@ export default function PostActions(props: Props) {
             )}
             {quoteCount > 0 && (
               <Link
-                href={`/dashboard/user/${post.author.handle}/post/${getPostId(
+                href={`/profile/${post.author.handle}/post/${getPostId(
                   post.uri
                 )}/quotes`}
                 className="text-skin-base flex gap-1 font-semibold"
@@ -98,7 +98,7 @@ export default function PostActions(props: Props) {
             )}
             {likeCount > 0 && (
               <Link
-                href={`/dashboard/user/${post.author.handle}/post/${getPostId(
+                href={`/profile/${post.author.handle}/post/${getPostId(
                   post.uri
                 )}/liked-by`}
                 className="text-skin-base flex gap-1 font-semibold"
@@ -185,14 +185,14 @@ export default function PostActions(props: Props) {
             }}
             className={
               liked
-                ? "text-skin-icon-like"
-                : "text-skin-icon-muted hover:text-skin-icon-like"
+                ? "text-skin-icon-star"
+                : "text-skin-icon-muted hover:text-skin-icon-star"
             }
           >
             {liked ? (
-              <BiSolidHeart className="text-xl" />
+              <BiSolidStar className="text-xl" />
             ) : (
-              <BiHeart className="text-xl" />
+              <BiStar className="text-xl" />
             )}
           </Button>
           <Dropdown>
@@ -332,15 +332,15 @@ export default function PostActions(props: Props) {
         }}
         className={`text-sm font-medium ${
           liked
-            ? "text-skin-icon-like"
-            : "text-skin-icon-muted hover:text-skin-icon-like"
+            ? "text-skin-icon-star"
+            : "text-skin-icon-muted hover:text-skin-icon-star"
         }
           `}
       >
         {liked ? (
-          <BiSolidHeart className="text-lg" />
+          <BiSolidStar className="text-lg" />
         ) : (
-          <BiHeart className="text-lg" />
+          <BiStar className="text-lg" />
         )}
         {likeCount > 0 && abbreviateNumber(likeCount)}
       </Button>

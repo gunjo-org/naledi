@@ -18,13 +18,13 @@ export default function MainContainer({
 }) {
   const mode = useClientModeState();
   const pathname = usePathname();
-  const isHome = pathname === "/dashboard/home";
+  const isHome = pathname === "/home";
   return (
     <main
       className={`
       bg-skin-base flex animate-fade
       ${
-        mode === "default"
+        mode === "Default"
           ? "justify-center pb-12 md:mt-6 gap-6"
           : isHome
             ? "md:ml-5"
@@ -39,7 +39,7 @@ export default function MainContainer({
       <section
         className={`
         ${
-          mode === "default"
+          mode === "Default"
             ? "w-full md:max-w-xl"
             : isHome
               ? "flex-1 overflow-x-auto"

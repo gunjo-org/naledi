@@ -8,6 +8,7 @@ import {
   BiSolidXCircle,
   BiSolidPalette,
   BiSolidPlanet,
+  BiDonateHeart
 } from "react-icons/bi";
 import { MdRemoveRedEye } from "react-icons/md";
 import { BiSolidBellOff } from "react-icons/bi";
@@ -36,7 +37,7 @@ export default async function SettingsContainer() {
           <div className="border-skin-base mt-2 flex w-full flex-col gap-3 rounded-none border border-x-0 p-3 md:rounded-b-2xl md:rounded-t-2xl md:border-x">
             <div className="flex flex-wrap items-center justify-between gap-3 ">
               <Link
-                href={`/dashboard/user/${profile.handle}`}
+                href={`/profile/${profile.handle}`}
                 className="flex gap-3"
               >
                 <Avatar
@@ -83,7 +84,7 @@ export default async function SettingsContainer() {
         </h3>
         <div className="flex flex-col">
           <Link
-            href="/dashboard/settings/appearance"
+            href="/settings/appearance"
             className="border-skin-base text-skin-base hover:bg-skin-secondary flex items-center gap-2 border border-x-0 p-3 last:border-b md:border-x md:first:rounded-t-2xl md:last:rounded-b-2xl odd:[&:not(:last-child)]:border-b-0 even:[&:not(:last-child)]:border-b-0"
           >
             <BiSolidPalette className="text-skin-icon-base text-xl" />
@@ -98,21 +99,21 @@ export default async function SettingsContainer() {
         </h3>
         <div className="flex flex-col">
           <Link
-            href="/dashboard/settings/home-feed"
+            href="/settings/home-feed"
             className="border-skin-base text-skin-base hover:bg-skin-secondary flex items-center gap-2 border border-x-0 p-3 last:border-b md:border-x md:first:rounded-t-2xl md:last:rounded-b-2xl odd:[&:not(:last-child)]:border-b-0 even:[&:not(:last-child)]:border-b-0"
           >
             <FaSlidersH className="text-skin-icon-base text-xl" />
             Home Feed Preferences
           </Link>
           <Link
-            href="/dashboard/settings/thread-preferences"
+            href="/settings/thread-preferences"
             className="border-skin-base text-skin-base hover:bg-skin-secondary flex items-center gap-2 border border-x-0 p-3 last:border-b md:border-x md:first:rounded-t-2xl md:last:rounded-b-2xl odd:[&:not(:last-child)]:border-b-0 even:[&:not(:last-child)]:border-b-0"
           >
             <ImBubbles2 className="text-skin-icon-base text-xl" />
             Thread Preferences
           </Link>
           <Link
-            href="/dashboard/settings/my-feeds"
+            href="/settings/my-feeds"
             className="border-skin-base text-skin-base hover:bg-skin-secondary flex items-center gap-2 border border-x-0 p-3 last:border-b md:border-x md:first:rounded-t-2xl md:last:rounded-b-2xl odd:[&:not(:last-child)]:border-b-0 even:[&:not(:last-child)]:border-b-0"
           >
             <BiSolidPlanet className="text-skin-icon-base text-xl" />
@@ -127,21 +128,21 @@ export default async function SettingsContainer() {
         </h3>
         <section className="flex flex-col">
           <Link
-            href="/dashboard/settings/content-filtering"
+            href="/settings/content-filtering"
             className="border-skin-base text-skin-base hover:bg-skin-secondary flex items-center gap-2 border border-x-0 p-3 last:border-b md:border-x md:first:rounded-t-2xl md:last:rounded-b-2xl odd:[&:not(:last-child)]:border-b-0 even:[&:not(:last-child)]:border-b-0"
           >
             <MdRemoveRedEye className="text-skin-icon-base text-xl" />
             Content Filtering
           </Link>
           <Link
-            href="/dashboard/settings/muted-users"
+            href="/settings/muted-users"
             className="border-skin-base text-skin-base hover:bg-skin-secondary flex items-center gap-2 border border-x-0 p-3 last:border-b md:border-x md:first:rounded-t-2xl md:last:rounded-b-2xl odd:[&:not(:last-child)]:border-b-0 even:[&:not(:last-child)]:border-b-0"
           >
             <BiSolidBellOff className="text-skin-icon-base text-xl" />
             Muted Users
           </Link>
           <Link
-            href="/dashboard/settings/blocked-users"
+            href="/settings/blocked-users"
             className="border-skin-base text-skin-base hover:bg-skin-secondary flex items-center gap-2 border border-x-0 p-3 last:border-b md:border-x md:first:rounded-t-2xl md:last:rounded-b-2xl odd:[&:not(:last-child)]:border-b-0 even:[&:not(:last-child)]:border-b-0"
           >
             <BsPersonFillSlash className="text-skin-icon-base text-xl" />
@@ -155,7 +156,7 @@ export default async function SettingsContainer() {
         </h3>
         <div className="flex flex-col">
           <Link
-            href="https://github.com/marukun712/stellar"
+            href="https://github.com/gunjo-org/naledi"
             target="_blank"
             className="border-skin-base text-skin-base hover:bg-skin-secondary flex items-center gap-2 border border-x-0 p-3 last:border-b md:border-x md:first:rounded-t-2xl md:last:rounded-b-2xl odd:[&:not(:last-child)]:border-b-0 even:[&:not(:last-child)]:border-b-0"
           >
@@ -163,12 +164,20 @@ export default async function SettingsContainer() {
             GitHub Repository
           </Link>
           <Link
-            href="https://github.com/marukun712/stellar/blob/master/LICENSE"
+            href="https://github.com/gunjo-org/naledi/blob/master/LICENSE"
             target="_blank"
             className="border-skin-base text-skin-base hover:bg-skin-secondary flex items-center gap-2 border border-x-0 p-3 last:border-b md:border-x md:first:rounded-t-2xl md:last:rounded-b-2xl odd:[&:not(:last-child)]:border-b-0 even:[&:not(:last-child)]:border-b-0"
           >
             <TbLicense className="text-skin-icon-base text-xl" />
             License
+          </Link>
+          <Link
+            href="https://donate.stripe.com/aEU8A5c57bmW2DC288"
+            target="_blank"
+            className="border-skin-base text-skin-base hover:bg-skin-secondary flex items-center gap-2 border border-x-0 p-3 last:border-b md:border-x md:first:rounded-t-2xl md:last:rounded-b-2xl odd:[&:not(:last-child)]:border-b-0 even:[&:not(:last-child)]:border-b-0"
+          >
+            <BiDonateHeart className="text-skin-icon-base text-xl" />
+            Become a Sponsor
           </Link>
           <Link
             href="/about"

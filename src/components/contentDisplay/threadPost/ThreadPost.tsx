@@ -13,7 +13,7 @@ import PostHider from "@/components/dataDisplay/postHider/PostHider";
 import Link from "next/link";
 import { getThreadPostFilter } from "@/lib/utils/feed";
 import ProfileHoverCard from "../profileHoverCard/ProfileHoverCard";
-import { Reaction } from "../../../../types/atmosphere/types/blue/maril/stellar/getReactions";
+import { Reaction } from "../../../../types/atmosphere/types/org/gunjo/naledi/getReactions";
 import ReactionButtons from "@/components/dataDisplay/postActions/ReactionButtons";
 import { useSetReactionState } from "@/state/reactions";
 
@@ -51,7 +51,7 @@ export default function ThreadPost(props: Props) {
         <button
           onClick={(e) => {
             e.stopPropagation();
-            router.push(`/dashboard/user/${author.handle}`);
+            router.push(`/profile/${author.handle}`);
           }}
           className="z-20 shrink-0 hover:brightness-90"
         >
@@ -65,7 +65,7 @@ export default function ThreadPost(props: Props) {
         <div className="flex grow flex-col">
           <div className="flex flex-col">
             <Link
-              href={`/dashboard/user/${author.handle}`}
+              href={`/profile/${author.handle}`}
               onClick={(e) => {
                 e.stopPropagation();
               }}

@@ -17,7 +17,7 @@ export default function BluemojiForm({
         <div>
           <label
             htmlFor="name"
-            className="block text-sm font-medium mb-2 text-skin-base"
+            className="block font-medium mb-2 text-skin-base"
           >
             Emoji Name
           </label>
@@ -34,7 +34,7 @@ export default function BluemojiForm({
         <div>
           <label
             htmlFor="alt"
-            className="block text-sm font-medium mb-2 text-skin-base"
+            className="block font-medium mb-2 text-skin-base"
           >
             Alt Text
           </label>
@@ -73,7 +73,7 @@ export default function BluemojiForm({
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full py-3 px-4 rounded-lg text-white font-medium bg-blue-600 hover:bg-blue-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+        className="w-full py-3 px-4 rounded-full text-white font-medium bg-blue-600 hover:bg-blue-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
       >
         {isLoading ? (
           <>

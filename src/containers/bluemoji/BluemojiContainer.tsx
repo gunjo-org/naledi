@@ -1,13 +1,14 @@
 "use client";
 import { useAgent } from "@/app/providers/agent";
 import { uploadBluemoji } from "@/lib/utils/bluemoji/upload/UploadBluemoji";
-import { getEmojis } from "@/lib/api/stellar";
+import { getEmojis } from "@/lib/api/naledi";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { FormEvent, useState } from "react";
 import Image from "next/image";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { BiTrash } from "react-icons/bi";
 import BluemojiForm from "@/components/forms/BluemojiForm";
+import FeedAlert from "@/components/feedback/feedAlert/FeedAlert";
 
 export default function BluemojiContainer() {
   const [isLoading, setIsLoading] = useState(false);
@@ -101,22 +102,35 @@ export default function BluemojiContainer() {
     : [];
 
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-8">
-      <div className="rounded-xl border border-slate-200 dark:border-slate-700 p-8">
-        <h2 className="text-3xl font-bold text-center mb-8 text-skin-base">
+    <section className="flex flex-col gap-5">
+      <h2 className="text-skin-base mx-3 mb-2 text-2xl font-semibold md:mx-0">
+        Bluemoji
+      </h2>
+
+      <section>
+        <h3 className="text-skin-base mx-3 mb-2 text-xl font-semibold md:mx-0">
           Upload Bluemoji
-        </h2>
+        </h3>
 
-        <BluemojiForm isLoading={isLoading} error={error} onSubmit={onSubmit} />
-      </div>
+        <div className="border-skin-base mt-2 flex w-full flex-col gap-3 rounded-none border border-x-0 p-3 md:rounded-b-2xl md:rounded-t-2xl md:border-x">
+          <BluemojiForm isLoading={isLoading} error={error} onSubmit={onSubmit} />
+        </div>
+      </section>
 
-      {emojis.length > 0 && (
-        <div className="rounded-xl border border-slate-200 dark:border-slate-700 p-8">
-          <h2 className="text-3xl font-bold text-center mb-8 text-skin-base">
-            Your Bluemoji
-          </h2>
+      <section>
+        <h3 className="text-skin-base mx-3 mb-2 text-xl font-semibold md:mx-0">
+          My Bluemoji
+        </h3>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        {emojis.length == 0 && (
+        <div className="mx-3 md:mx-0">
+          <FeedAlert variant="empty" message="My Bluemoji not found." standalone />
+        </div>
+        )}
+
+        {emojis.length > 0 && (
+        <div className="border-skin-base mt-2 flex w-full flex-col gap-3 rounded-none border border-x-0 p-3 md:rounded-b-2xl md:rounded-t-2xl md:border-x">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             {emojis.map((emoji) => (
               <div
                 key={emoji.ref.rkey}
@@ -154,7 +168,7 @@ export default function BluemojiContainer() {
                         </p>
                         <button
                           onClick={() => deleteBluemoji(emoji.ref.rkey)}
-                          className="w-full bg-red-500 hover:bg-red-600 text-white rounded-lg py-2 px-4 transition-colors flex items-center justify-center space-x-2"
+                          className="w-full bg-red-500 hover:bg-red-600 text-white rounded-full py-2 px-4 transition-colors flex items-center justify-center space-x-2"
                         >
                           <BiTrash />
                           <span>Delete</span>
@@ -167,7 +181,8 @@ export default function BluemojiContainer() {
             ))}
           </div>
         </div>
-      )}
-    </div>
+        )}
+      </section>
+    </section>
   );
 }

@@ -2,7 +2,6 @@
 
 import NavItem from "./NavItem";
 import { usePathname } from "next/navigation";
-
 import {
   BiHome,
   BiSolidHome,
@@ -10,8 +9,8 @@ import {
   BiSolidPlanet,
   BiCog,
   BiSolidCog,
+  BiWindow,
   BiColumns,
-  BiSquareRounded,
 } from "react-icons/bi";
 import { PiMagnifyingGlassBold, PiMagnifyingGlassFill } from "react-icons/pi";
 import { HiClipboardList, HiOutlineClipboardList } from "react-icons/hi";
@@ -44,66 +43,66 @@ export default function Navbar() {
   return (
     <nav className="inline-flex flex-col gap-5 lg:ml-1.5">
       <NavItem
-        href="/dashboard/home"
+        href="/home"
         icon={<BiHome className="text-2xl md:text-3xl" />}
         activeIcon={<BiSolidHome className="text-2xl md:text-3xl" />}
         title="Home"
-        isActive={pathname === "/dashboard/home"}
+        isActive={pathname === "/home"}
       />
       <NavItem
-        href="/dashboard/search"
+        href="/search"
         icon={<PiMagnifyingGlassBold className="text-2xl md:text-3xl" />}
         activeIcon={<PiMagnifyingGlassFill className="text-2xl md:text-3xl" />}
         title="Search"
         isActive={pathname.includes("search")}
       />
       <NavItem
-        href="/dashboard/feeds"
+        href="/feeds"
         icon={<BiPlanet className="text-2xl md:text-3xl" />}
         activeIcon={<BiSolidPlanet className="text-2xl md:text-3xl" />}
         title="Feeds"
-        isActive={pathname === "/dashboard/feeds"}
+        isActive={pathname === "/feeds"}
       />
       <NavItem
-        href="/dashboard/lists"
+        href="/lists"
         icon={<HiOutlineClipboardList className="text-2xl md:text-3xl" />}
         activeIcon={<HiClipboardList className="text-2xl md:text-3xl" />}
         title="Lists"
-        isActive={pathname === "/dashboard/lists"}
+        isActive={pathname === "/lists"}
       />
       <NavItem
-        href="/dashboard/notifications"
+        href="/notifications"
         icon={<FaRegBell className="text-2xl md:text-3xl" />}
         activeIcon={<FaBell className="text-2xl md:text-3xl" />}
-        title="Notifications"
+        title="Noti"
         isActive={pathname.includes("notifications")}
         badge={notificationsCount ?? 0}
       />
       <NavItem
-        href="/dashboard/bluemoji"
+        href="/bluemoji"
         icon={<FaRegSmile className="text-2xl md:text-3xl" />}
         activeIcon={<FaSmile className="text-2xl md:text-3xl" />}
         title="Bluemoji"
         isActive={pathname.includes("bluemoji")}
       />
       <NavItem
-        href="/dashboard/settings"
+        href="/settings"
         icon={<BiCog className="text-2xl md:text-3xl" />}
         activeIcon={<BiSolidCog className="text-2xl md:text-3xl" />}
         title="Settings"
         isActive={pathname.includes("settings")}
       />
       <button
-        className="hover:text-skin-base flex items-center text-skin-secondary"
+        className="hover:text-skin-base flex items-center text-skin-secondary gap-3"
         onClick={() => {
-          setClientMode(clientMode === "default" ? "deck" : "default");
+          setClientMode(clientMode === "Default" ? "Deck" : "Default");
         }}
       >
-        <div className="relative m-2 md:m-0 text-4xl">
-          {clientMode === "default" ? <BiSquareRounded /> : <BiColumns />}
+        <div className="relative text-2xl md:text-3xl">
+          {clientMode === "Default" ? <BiColumns /> : <BiWindow />}
         </div>
-        <span className={`hidden text-lg font-medium lg:inline ml-2`}>
-          {clientMode === "default" ? "default" : "deck"}
+        <span className={`hidden text-lg font-medium lg:inline`}>
+          {clientMode === "Default" ? "Deck" : "Default"}
         </span>
       </button>
     </nav>

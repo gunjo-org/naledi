@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { AppBskyFeedDefs } from "@atproto/api";
 import FallbackFeed from "@/assets/images/fallbackFeed.png";
-import { BiSolidHeart } from "react-icons/bi";
+import { BiSolidStar } from "react-icons/bi";
 import Link from "next/link";
 
 interface Props {
@@ -17,7 +17,7 @@ export default function FeedEmbed(props: Props) {
       {depth < 2 && (
         <Link
           href={{
-            pathname: `/dashboard/feeds/${encodeURIComponent(
+            pathname: `/feeds/${encodeURIComponent(
               feed.uri.split(":")[3].split("/")[0],
             )}`,
             query: { uri: feed.uri },
@@ -52,7 +52,7 @@ export default function FeedEmbed(props: Props) {
             </p>
           )}
           <small className="text-skin-secondary flex items-center gap-1 font-medium">
-            <BiSolidHeart />
+            <BiSolidStar />
             <span>{feed.likeCount ?? 0}</span>
           </small>
         </Link>
